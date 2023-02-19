@@ -3,6 +3,24 @@
 using namespace std;
 
 /*
+    Insert the node intially at the end of the tree. Then start comparing it 
+    with it's parents. If bigger than it's parents, swap both of them, else terminate
+*/
+
+
+void insert(vector<int> &vec, int a) {
+    vec.push_back(a);
+    int l = vec.size()-1;
+    int p = (l-1)/2;
+    while(vec[l] < vec[p]) {
+        swap(vec[l], vec[p]);
+        l = p;
+        p = (l-1)/2;
+    }
+}
+
+
+/*
     The max-heapify function ensures that at a given node i, the property of max_heap
     is satisfied. If it is not, then it will swap the i.th element with it's largest child
     and then recursively call upon the largest element.
